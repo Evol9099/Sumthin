@@ -26,3 +26,4 @@ while line != "":
     output(out)
 
     line = file.readline().strip("\n")
+a = 0
