@@ -6,7 +6,6 @@ symbol = {}
 file = open("..\\..\\Assembly Test.txt","r")
 outfile = open("..\\..\\Assembly Macode.txt","w")
 line = file.readline().strip("\n")
-memo = "notoperand"
 out = ""
 
 def output(out):

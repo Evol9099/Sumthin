@@ -1,0 +1,5 @@
+INC ACC
+LDM #99
+CMP #69
+LDD 7
+END
