@@ -31,13 +31,16 @@ file.seek(0)
 line = file.readline().strip("\n")
 
 while line != "END":
-    counta = 0
+    counta = 1
     if line[0] == "(":
         for letter in line:
             if letter != ")":
                 counta += 1
+                print(counta)
+            else: break
         out = opcode[line[counta:counta+3]]
-
+        print(out)
+    line = file.readline().strip("\n")
 
     len(symbol)
     out = opcode[line[0:3]]
