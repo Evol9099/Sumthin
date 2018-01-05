@@ -1,5 +1,6 @@
 INC ACC
 LDM #99
-CMP #69
+(loop)CMP #69
+JPN loop
 LDD 7
 END

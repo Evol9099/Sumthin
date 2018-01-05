@@ -4,8 +4,8 @@ opcode = {"LDM":"0001","LDD":"0010","LDI":"0011","LDX":"0100","LDR":"0101",
           "CMP":"1100","JPE":"1101","JPN":"1110","END":"00000000"}
 symbol = {}
 Acc = 0
-file = open("..\\..\\Assembly Test.txt","r")
-outfile = open("..\\..\\Assembly Macode.txt","w")
+file = open("Assembly Test.txt","r")
+outfile = open("Assembly Macode.txt","w")
 out = ""
 line = file.readline().strip("\n")
 countb = 0
