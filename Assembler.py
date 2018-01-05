@@ -1,28 +1,55 @@
 from DenaryConverter import dtb
-opcode = {"LDM":"00010000","CMP":"00100000","JPN":"00110000","INC":"01000000","JMP":"01010000",
-          "END":"00000000","LDD":"01100000"}
-Acc = 0
+opcode = {"LDM":"0001","LDD":"0010","LDI":"0011","LDX":"0100","LDR":"0101",
+          "STO":"0110","ADD":"1000","INC":"1001","DEC":"1010","JMP":"1011",
+          "CMP":"1100","JPE":"1101","JPN":"1110","END":"00000000"}
 symbol = {}
+Acc = 0
 file = open("..\\..\\Assembly Test.txt","r")
 outfile = open("..\\..\\Assembly Macode.txt","w")
-line = file.readline().strip("\n")
 out = ""
+line = file.readline().strip("\n")
+countb = 0
+
+while line != "END":
+    counta = -1
+    if line[0] == "(":
+        for letter in line:
+            counta += 1
+            if letter == ")":
+                symbol[line[1:counta]] = countb
+    countb += 1
+    line = file.readline().strip("\n")
+print(symbol)
 
 def output(out):
-    print(out+oprand)
+    print(str(out)+oprand)
     '''out = out+oprand
     outfile.writelines(out+"\n")'''
 
-while line != "":
-    out =opcode[line[0:3]]
+comp = ""
+file.seek(0)
+line = file.readline().strip("\n")
+
+while line != "END":
+    counta = 0
+    if line[0] == "(":
+        for letter in line:
+            if letter != ")":
+                counta += 1
+        out = opcode[line[counta:counta+3]]
+
+
+    len(symbol)
+    out = opcode[line[0:3]]
     if line[4:] == "ACC":
+        out += "1000"
         oprand = "00000000"
-    else:
+    elif line[4] == "#":
+        out += "0000"
         oprand = dtb(int(line[5:]))
-    if line[4] == "#":
-        break
+    else:
+        out += "0100"
+        oprand = dtb(int(line[4:]))
 
     output(out)
-
     line = file.readline().strip("\n")
-a = 0
