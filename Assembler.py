@@ -30,29 +30,40 @@ comp = ""
 file.seek(0)
 line = file.readline().strip("\n")
 
+
 while line != "END":
-    counta = 1
+    counta = 0
+    countb = 0
     if line[0] == "(":
+        counta += 1
         for letter in line:
             if letter != ")":
                 counta += 1
-                print(counta)
             else: break
         out = opcode[line[counta:counta+3]]
-        print(out)
-    line = file.readline().strip("\n")
+    else: out = opcode[line[0:3]]
 
-    len(symbol)
-    out = opcode[line[0:3]]
-    if line[4:] == "ACC":
+    if line[counta+4] == "(":
+        out += "1100"
+        for letter in line[4:]:
+            if letter != ")":
+                countb += 1
+        oprand = dtb(int(symbol[line[5:countb+4]]))
+
+    elif line[counta+4:] == "ACC":
         out += "1000"
         oprand = "00000000"
-    elif line[4] == "#":
+
+    elif line[counta+4] == "#":
         out += "0000"
-        oprand = dtb(int(line[5:]))
+        oprand = dtb(int(line[counta+5:]))
+
     else:
         out += "0100"
-        oprand = dtb(int(line[4:]))
+        oprand = dtb(int(line[counta+4:]))
 
     output(out)
     line = file.readline().strip("\n")
+
+file.close()
+outfile.close()
