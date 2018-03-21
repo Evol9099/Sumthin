@@ -1,0 +1,8 @@
+Name1,Name2,Dept,Role,Allergies,FaveStudent
+Angus,McKie,Science,Teacher,,
+Josef,Waldron,Computer Science,Teacher,,Not Nam Anh
+Nick,Lee,,Head of Secondary,Pickled Onions,
+Chris,Dale,Economics,Teacher,Pineapples,Nick Lee
+Brooke,Smith,Science,Techer,Scotch Eggs,Johnny
+Emma,Golfie,Computer Science,Teacher,,Bao Lam
+Dan,Scovell,Maths,Teacher,Vegetables,
