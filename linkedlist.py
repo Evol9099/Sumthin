@@ -1,39 +1,42 @@
 
 class Node:
-    def __init__(self, data):
-        Node.data = data
-        Node.pointer = None
+    def __init__(self, data1,data2):
+        self.name = data1
+        self.age = data2
+        self.pointer = None
 
 class Linkedlist:
     def __init__(self):
         self.head = None
 
-    def find (self, subject):
-        print(self.head)
-        print(Llist.head.data)
+    def findname (self, subject):
         finder = self.head
-        print(Llist.head.data)
         x = 0
-        while finder.data != subject:
+        while finder.name != subject:
             finder = finder.pointer
             x += 1
-        print(x)
+        print(x,finder)
+        return(finder)
 
     def printList(self):
         temp = self.head
         while (temp):
-            print (temp.data)
+            print (temp.name,temp.age)
             temp = temp.pointer
+
+    '''def delete (node):'''
+
+
+
 
 Llist = Linkedlist()
 
-Llist.head = Node("Nanh")
-Second = Node("Phuuk")
-Third = Node("Peter")
+Llist.head = Node("Nanh",1)
+Second = Node("Phuuk",6)
+Third = Node("Peter",999)
 
 Llist.head.pointer = Second
 Second.pointer = Third
 
-print(Llist.head.data)
-Llist.find("someone")
-
+Llist.findname("Peter")
+Llist.printList()
